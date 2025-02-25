@@ -5,7 +5,7 @@ pubDatetime: 2023-07-21T10:11:06.130Z
 modDatetime: 2024-01-03T14:53:25Z
 slug: how-to-add-estimated-reading-time
 featured: false
-draft: false
+draft: true
 tags:
   - FAQ
 description: How you can add an 'Estimated Reading time' in your blog posts of AstroPaper.
@@ -110,7 +110,7 @@ export const getReadingTime = async () => {
   const mapFrontmatter = new Map();
   const globPostsValues = Object.values(globPosts);
   await Promise.all(
-    globPostsValues.map(async globPost => {
+    globPostsValues.map(async (globPost) => {
       const { frontmatter } = await globPost();
       mapFrontmatter.set(
         slugifyStr(frontmatter.title),
@@ -124,7 +124,7 @@ export const getReadingTime = async () => {
 
 const getPostsWithRT = async (posts: CollectionEntry<"blog">[]) => {
   const mapFrontmatter = await getReadingTime();
-  return posts.map(post => {
+  return posts.map((post) => {
     post.data.readingTime = mapFrontmatter.get(slugifyStr(post.data.title));
     return post;
   });

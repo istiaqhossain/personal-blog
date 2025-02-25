@@ -5,7 +5,7 @@ modDatetime: 2024-09-25T12:07:53Z
 title: How to integrate Giscus comments into AstroPaper
 slug: how-to-integrate-giscus-comments
 featured: true
-draft: false
+draft: true
 tags:
   - astro
   - blog
@@ -146,7 +146,7 @@ export default function Comments({
   useEffect(() => {
     const themeButton = document.querySelector("#theme-btn");
     const handleClick = () => {
-      setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
+      setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
     };
 
     themeButton?.addEventListener("click", handleClick);
