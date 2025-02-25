@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-default: "Geist Mono", "serif";
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  @apply font-bold border-b-2 border-black border-dashed;
+}
